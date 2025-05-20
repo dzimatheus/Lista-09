@@ -1,0 +1,53 @@
+public class ContaCorrente {
+    protected double saldo;
+    public ContaCorrente(double saldo){
+        this.saldo = saldo;
+    }
+    protected void depositarQuantia(double quantia){
+        System.out.println("Seu saldo antes: " + saldo);
+        saldo = saldo + quantia;
+        System.out.println("Seu saldo agora: " + saldo);
+    }
+    protected void sacarQuantia(double quantia){
+        System.out.println("Taxa cobrada: " + quantia*0.005);
+        quantia = quantia - (quantia*0.005); 
+        System.out.println("Valor sacado: " + quantia);
+        saldo -= quantia;
+        System.out.println("Valor restante na conta: " + saldo);
+    }
+    protected void obterSaldo(){
+        System.out.println("Saldo da conta: " + saldo);
+    }
+}
+
+
+
+
+public class ClienteEspecial extends ContaCorrente {
+    public ClienteEspecial(double saldo){
+        super(saldo);
+    }
+    @Override
+    public void sacarQuantia(double quantia){
+        System.out.println("Taxa cobrada: " + quantia*0.001);
+        quantia = quantia - (quantia*0.001); 
+        System.out.println("Valor sacado: " + quantia);
+        saldo -= quantia;
+        System.out.println("Valor restante na conta: " + saldo);
+    }
+}
+
+
+
+public class TesteConta {
+    public static void main(String[] args) {
+        ContaCorrente c1 = new ContaCorrente(8500);
+        ClienteEspecial especial = new ClienteEspecial(1500);
+        c1.obterSaldo();
+        especial.obterSaldo();
+        c1.depositarQuantia(100);
+        especial.depositarQuantia(250);
+        c1.sacarQuantia(1500);
+        especial.sacarQuantia(1500);
+    }
+}
