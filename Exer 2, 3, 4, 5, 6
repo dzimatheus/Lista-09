@@ -1,0 +1,20 @@
+2 - Utilizando a palavra super().
+
+3 - Sim, pode usar o super() no construtor da subclasse para passar parametros para superclasse.
+
+4 - Não, deve estar na primeira linha do construtor da subclasse.
+
+5 - a) diagrama de classes.
+
+b) A classe A só pode acessar os seus 3 métodos, m1(), m2() e m3().
+
+c) A classe B por ser uma subclasse de A, pode acessar os 5 métodos.
+
+d) Apenas 4 métodos podem ser acessados por B, poís m1() sendo private só pode ser acessado por sua classe.
+
+6 - saída:
+Construção A
+Construção B
+Construção C
+Em uma hierarquia de classes, os construtores executam em ordem de derivação, ou seja, da superclasse para subclasse, nesse caso como não tem a palavra super(),
+O construtor padrão de cada superclasse será executado.
