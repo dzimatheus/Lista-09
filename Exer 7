@@ -1,0 +1,70 @@
+public class Produto {
+    protected String nome;
+    protected double preco;
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+    @Override
+    public String toString() {
+        return nome + "; R$ " + preco;
+    }
+}
+
+
+
+public class Livro extends Produto {
+    private String autor;
+    public Livro(String nome, double preco, String autor){
+        super(nome, preco);
+        this.autor = autor;
+    }
+    @Override
+    public String toString(){
+        return nome + "; R$ " + preco + "; Autor" + autor;
+    }
+}
+
+
+
+public class CD extends Produto {
+    private int numfaixas;
+    public CD(String nome, double preco, int numfaixas){
+        super(nome, preco);
+        this.numfaixas = numfaixas;
+    }
+    @Override
+    public String toString(){
+        return nome + "; R$ " + preco + "; numero de faixas " + numfaixas;
+    }
+    
+}
+
+
+
+public class DVD extends Produto{
+    private double duracao;
+    public DVD(String nome, double preco, double duracao){
+        super(nome, preco);
+        this.duracao = duracao;
+    }
+    @Override
+    public String toString(){
+        return nome + "; R$ " + preco + "; duracoa " + duracao;
+    }
+}
+
+
+
+public class Loja {
+    public static void main(String[] args) {
+    Produto[] produtos = new Produto[5];
+    produtos[0] = new CD("Que país é este", 14.9, 9);
+    produtos[1] = new DVD("Matrix", 24.9, 90);
+    produtos[2] = new Livro("O Senhor dos Anéis", 50.0, " Tolkien");
+    produtos[3] = new Livro("Harry Potter", 39.9, "J. K. Rowling");
+    produtos[4] = new DVD("Inception", 29.9, 100);
+    for (Produto p : produtos)
+        System.out.println(p);
+    }
+}
